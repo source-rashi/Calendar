@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Interactive Wall Calendar",
-  description: "A beautiful, interactive calendar with note-taking capabilities",
+  title: "Frontend Challenge - Calendar",
+  description: "A polished, interactive calendar component built with Next.js",
 };
 
 export default function RootLayout({

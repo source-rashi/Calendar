@@ -91,7 +91,7 @@ export function getHoliday(dateStr: string): Holiday | undefined {
 export const MONTH_IMAGES: MonthImage[] = [
   { month: 1,  url: 'https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=900&q=80', photographer: 'Oleksandr Pidvalnyi', location: 'Snowy Mountains', palette: { primary: '#1a6fc4', secondary: '#4a9ede', accent: '#00c9ff' } },
   { month: 2,  url: 'https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=900&q=80', photographer: 'Jack Anstey', location: 'Winter Forest', palette: { primary: '#4c6fa5', secondary: '#7a9fd4', accent: '#b8d4f0' } },
-  { month: 3,  url: 'https://images.unsplash.com/photo-1490750967868-88df5691166d?w=900&q=80', photographer: 'Aaron Burden', location: 'Spring Bloom', palette: { primary: '#e07aa1', secondary: '#f5a3c1', accent: '#ffd6e8' } },
+  { month: 3,  url: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=900&q=80', photographer: 'Picography', location: 'Spring Field', palette: { primary: '#e07aa1', secondary: '#f5a3c1', accent: '#ffd6e8' } },
   { month: 4,  url: 'https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=900&q=80', photographer: 'Dawid Zawiła', location: 'Cherry Blossoms', palette: { primary: '#c45178', secondary: '#e87da0', accent: '#ffc0d6' } },
   { month: 5,  url: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900&q=80', photographer: 'Ales Krivec', location: 'Green Fields', palette: { primary: '#2e7d32', secondary: '#4caf50', accent: '#a5d6a7' } },
   { month: 6,  url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=80', photographer: 'Sean Oulashin', location: 'Summer Beach', palette: { primary: '#0277bd', secondary: '#039be5', accent: '#81d4fa' } },

@@ -10,6 +10,19 @@
   margin: auto; /* Vertically centers inside the new flex body */
   min-height: 900px; /* Enforce portrait feel */
   z-index: 10;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+}
+
+.flipping {
+  animation: flipUp 0.6s cubic-bezier(0.45, 0, 0.55, 1) forwards;
+}
+
+@keyframes flipUp {
+  0% { transform: perspective(2000px) rotateX(0deg); filter: brightness(1); }
+  40% { transform: perspective(2000px) rotateX(90deg); filter: brightness(0.7); }
+  50% { transform: perspective(2000px) rotateX(-90deg); filter: brightness(0.7); }
+  100% { transform: perspective(2000px) rotateX(0deg); filter: brightness(1); }
 }
 
 .calendarBody {

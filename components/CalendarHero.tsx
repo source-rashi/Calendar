@@ -11,17 +11,16 @@ interface CalendarHeroProps {
   onPrev: () => void;
   onNext: () => void;
   onToday: () => void;
-  isFlipping: boolean;
 }
 
 export default function CalendarHero({
-  year, month, onPrev, onNext, onToday, isFlipping
+  year, month, onPrev, onNext, onToday
 }: CalendarHeroProps) {
   const monthImg = getMonthImage(month + 1);
   const { palette } = monthImg;
 
   return (
-    <div className={`${styles.hero} ${isFlipping ? styles.flipping : ''}`}>
+    <div className={styles.hero}>
       {/* Spiral binding */}
       <div className={styles.spiralContainer}>
         {Array.from({ length: 14 }).map((_, i) => (

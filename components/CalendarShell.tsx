@@ -15,7 +15,7 @@ export default function CalendarShell() {
   const primaryColor = currentMonthImage.palette.primary;
 
   return (
-    <div className={styles.calendarShell}>
+    <div className={`${styles.calendarShell} ${calendar.isFlipping ? styles.flipping : ''}`}>
       {/* Top Hero Section */}
       <CalendarHero
         year={calendar.currentYear}
@@ -23,7 +23,6 @@ export default function CalendarShell() {
         onPrev={calendar.goToPrevMonth}
         onNext={calendar.goToNextMonth}
         onToday={calendar.goToToday}
-        isFlipping={calendar.isFlipping}
       />
 
       {/* Main Body (Grid + Notes) */}

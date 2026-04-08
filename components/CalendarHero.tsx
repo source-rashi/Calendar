@@ -21,9 +21,16 @@ export default function CalendarHero({
 
   return (
     <div className={styles.hero}>
+      {/* Center Hanger Loop */}
+      <div className={styles.calendarHanger}>
+        <div className={styles.hangerLoop} />
+      </div>
+
       {/* Spiral binding */}
       <div className={styles.spiralContainer}>
-        {Array.from({ length: 14 }).map((_, i) => (
+        {/* Continuous straight wire */}
+        <div className={styles.spiralWire} />
+        {Array.from({ length: 28 }).map((_, i) => (
           <div key={i} className={styles.spiralCoil} />
         ))}
       </div>

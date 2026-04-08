@@ -6,7 +6,6 @@ import { getMonthImage } from '@/lib/calendarUtils';
 import CalendarHero from './CalendarHero';
 import CalendarGrid from './CalendarGrid';
 import NotesPanel from './NotesPanel';
-import DateRangeInfo from './DateRangeInfo';
 import styles from './CalendarShell.module.css';
 
 export default function CalendarShell() {
@@ -44,14 +43,6 @@ export default function CalendarShell() {
 
         {/* Right Side: Grid */}
         <div className={styles.mainContent}>
-          {calendar.dateRange.start && (
-            <DateRangeInfo 
-              dateRange={calendar.dateRange} 
-              clearSelection={calendar.clearSelection} 
-              primaryColor={primaryColor}
-            />
-          )}
-          
           <CalendarGrid
             year={calendar.currentYear}
             month={calendar.currentMonth}

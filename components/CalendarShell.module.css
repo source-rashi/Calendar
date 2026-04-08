@@ -2,13 +2,14 @@
   width: 100%;
   max-width: 700px;
   background: var(--white);
-  box-shadow: var(--shadow-calendar);
+  box-shadow: 0 40px 100px -10px rgba(0,0,0,0.2), 0 20px 40px -10px rgba(0,0,0,0.1), 0 -2px 10px rgba(0,0,0,0.02);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
-  margin: 0 auto;
+  margin: auto; /* Vertically centers inside the new flex body */
   min-height: 900px; /* Enforce portrait feel */
+  z-index: 10;
 }
 
 .calendarBody {

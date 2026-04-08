@@ -50,26 +50,26 @@ export default function CalendarHero({
         </div>
       </div>
 
-      {/* Wave divider with month/year */}
-      <div className={styles.waveSection} style={{ '--wave-color': palette.primary } as any}>
+      {/* Angular geometry overlay */}
+      <div className={styles.angularOverlay}>
         <svg
-          className={styles.waveSvg}
-          viewBox="0 0 900 80"
+          className={styles.angularSvg}
+          viewBox="0 0 1000 150"
           preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d={`M0,80 L0,40 Q100,0 200,25 Q300,50 400,20 Q500,0 600,25 Q700,50 800,20 Q850,10 900,30 L900,80 Z`}
-            fill={palette.primary}
-          />
+          {/* Left smaller triangle */}
+          <polygon points="0,150 0,80 300,150" fill={palette.primary} />
+          {/* Right larger polygon with text */}
+          <polygon points="300,150 1000,0 1000,150" fill={palette.primary} />
         </svg>
 
-        <div className={styles.monthYearBadge} style={{ background: palette.primary }}>
-          <span className={styles.yearText}>{year}</span>
-          <span className={styles.monthText}>{MONTHS[month].toUpperCase()}</span>
+        <div className={styles.monthYearBadge}>
+          <div className={styles.yearText}>{year}</div>
+          <div className={styles.monthText}>{MONTHS[month].toUpperCase()}</div>
         </div>
 
-        {/* Navigation arrows */}
+        {/* Navigation arrows (floating over the image/shapes) */}
         <div className={styles.navButtons}>
           <button
             className={styles.navBtn}

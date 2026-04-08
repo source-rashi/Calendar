@@ -2,44 +2,63 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: white;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-100);
+  background: transparent;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  padding: 0 4px;
+}
+
+.notesTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray-800);
 }
 
 .tabs {
   display: flex;
-  border-bottom: 1px solid var(--gray-100);
-  background: var(--off-white);
+  align-items: center;
+  gap: 6px;
 }
 
 .tab {
-  flex: 1;
-  padding: 12px 0;
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  color: var(--gray-500);
+  color: var(--gray-400);
   background: transparent;
-  border-bottom: 2px solid transparent;
-  transition: all var(--transition-fast);
+  padding: 0;
+  transition: color 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .tab:hover:not(.activeTab) {
-  color: var(--gray-700);
-  background: rgba(0,0,0,0.02);
+  color: var(--gray-600);
 }
 
 .activeTab {
-  background: white;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.tabDivider {
+  color: var(--gray-300);
+  font-size: 0.7rem;
 }
 
 .tabContent {
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  position: relative;
 }
 
 /* ── Month Notes ───────────────────────────────── */
@@ -48,37 +67,40 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 16px 20px;
-  background: #fdfbf7;
+  min-height: 200px;
 }
 
 .monthTextarea {
   flex: 1;
   width: 100%;
+  height: 100%;
   resize: none;
   border: none;
   background: transparent;
-  font-family: inherit;
+  font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
-  line-height: 28px;
+  line-height: 32px;
   color: var(--gray-800);
   outline: none;
   z-index: 2;
+  padding: 0 4px;
+  overflow: hidden;
 }
 
 .monthTextarea::placeholder {
-  color: var(--gray-300);
+  color: rgba(0,0,0,0.2);
   font-style: italic;
+  font-size: 0.85rem;
 }
 
 .notebookLines {
   position: absolute;
-  top: 16px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(transparent 27px, #e1e6f0 28px);
-  background-size: 100% 28px;
+  background-image: linear-gradient(transparent 31px, var(--gray-200) 32px);
+  background-size: 100% 32px;
   pointer-events: none;
   z-index: 1;
 }
@@ -88,8 +110,6 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 16px;
-  background: white;
 }
 
 .emptyState {
@@ -98,15 +118,38 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 8px;
   color: var(--gray-400);
   text-align: center;
-  padding: 20px;
+  padding: 20px 0;
+  position: relative;
+}
+
+.emptyState::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(transparent 31px, var(--gray-200) 32px);
+  background-size: 100% 32px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.emptyState > * {
+  z-index: 2;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
 }
 
 .emptyState p {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   line-height: 1.4;
+  letter-spacing: 0.02em;
 }
 
 .notesList {
@@ -114,33 +157,42 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 16px;
+  gap: 12px;
+  margin-bottom: 12px;
+  min-height: 120px;
 }
 
 .noNotesMsg {
   color: var(--gray-400);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-style: italic;
-  text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .noteItem {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 10px 12px;
-  background: var(--off-white);
-  border-radius: var(--radius-sm);
-  border-left: 4px solid var(--primary);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  animation: slideInRight 0.3s ease;
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--gray-100);
+  position: relative;
+  padding-left: 14px;
+}
+
+.noteItem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--note-color, var(--primary));
 }
 
 .noteText {
   font-size: 0.85rem;
-  color: var(--gray-700);
+  color: var(--gray-800);
   line-height: 1.4;
   word-wrap: break-word;
   padding-right: 8px;
@@ -149,80 +201,80 @@
 .deleteNoteBtn {
   color: var(--gray-300);
   padding: 2px;
-  border-radius: 4px;
   transition: all 0.2s ease;
   flex-shrink: 0;
+  background: transparent;
 }
 
 .deleteNoteBtn:hover {
   color: var(--accent-warm);
-  background: rgba(255, 107, 107, 0.1);
 }
 
 .addNoteForm {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding-top: 16px;
-  border-top: 1px solid var(--gray-100);
+  gap: 10px;
 }
 
 .colorPicker {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 .colorBtn {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  border: 2px solid transparent;
+  border: 1px solid rgba(0,0,0,0.1);
   transition: transform 0.2s;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .colorBtn:hover {
-  transform: scale(1.15);
+  transform: scale(1.2);
 }
 
 .selectedColor {
-  border-color: var(--gray-800);
-  transform: scale(1.15);
+  transform: scale(1.2);
+  box-shadow: 0 0 0 2px white, 0 0 0 3px var(--gray-500);
 }
 
 .inputGroup {
   display: flex;
-  gap: 8px;
+  border-bottom: 2px solid var(--gray-200);
+  padding-bottom: 4px;
 }
 
 .noteInput {
   flex: 1;
-  padding: 8px 12px;
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-sm);
+  padding: 4px 0;
+  border: none;
+  background: transparent;
   font-size: 0.85rem;
   outline: none;
-  transition: border-color 0.2s;
+  color: var(--gray-800);
 }
 
-.noteInput:focus {
-  border-color: var(--primary);
+.noteInput::placeholder {
+  color: var(--gray-300);
+  font-style: italic;
 }
 
 .submitBtn {
-  padding: 8px 16px;
-  color: white;
-  font-size: 0.85rem;
-  font-weight: 500;
-  border-radius: var(--radius-sm);
+  padding: 4px 12px;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: transparent;
   transition: opacity 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .submitBtn:hover {
-  opacity: 0.9;
+  opacity: 0.7;
 }
 
 .submitBtn:disabled {
-  opacity: 0.5;
+  opacity: 0.3;
   cursor: not-allowed;
 }

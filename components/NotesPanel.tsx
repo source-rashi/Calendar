@@ -122,7 +122,7 @@ export default function NotesPanel({
               type="submit" 
               className={styles.submitBtn}
               disabled={!newNoteText.trim()}
-              style={{ backgroundColor: primaryColor }}
+              style={{ color: primaryColor }}
             >
               Add
             </button>
@@ -134,21 +134,25 @@ export default function NotesPanel({
 
   return (
     <div className={styles.notesPanel}>
-      <div className={styles.tabs}>
-        <button
-          className={`${styles.tab} ${activeTab === 'month' ? styles.activeTab : ''}`}
-          onClick={() => setActiveTab('month')}
-          style={activeTab === 'month' ? { borderBottomColor: primaryColor, color: primaryColor } : {}}
-        >
-          Month Notes
-        </button>
-        <button
-          className={`${styles.tab} ${activeTab === 'date' ? styles.activeTab : ''}`}
-          onClick={() => setActiveTab('date')}
-          style={activeTab === 'date' ? { borderBottomColor: primaryColor, color: primaryColor } : {}}
-        >
-          Date Notes
-        </button>
+      <div className={styles.header}>
+        <h3 className={styles.notesTitle}>Notes</h3>
+        <div className={styles.tabs}>
+          <button
+            className={`${styles.tab} ${activeTab === 'month' ? styles.activeTab : ''}`}
+            onClick={() => setActiveTab('month')}
+            style={activeTab === 'month' ? { color: primaryColor } : {}}
+          >
+            Month
+          </button>
+          <span className={styles.tabDivider}>/</span>
+          <button
+            className={`${styles.tab} ${activeTab === 'date' ? styles.activeTab : ''}`}
+            onClick={() => setActiveTab('date')}
+            style={activeTab === 'date' ? { color: primaryColor } : {}}
+          >
+            Date
+          </button>
+        </div>
       </div>
 
       <div className={styles.tabContent}>
@@ -156,9 +160,10 @@ export default function NotesPanel({
           <div className={styles.monthNotesContainer}>
             <textarea
               className={styles.monthTextarea}
-              placeholder={`Write down your goals, reminders, or general memos for ${MONTHS[currentMonth]}...`}
+              placeholder="Write your memos here..."
               value={currentMonthNote}
               onChange={handleMonthNoteChange}
+              spellCheck={false}
             />
             <div className={styles.notebookLines} />
           </div>

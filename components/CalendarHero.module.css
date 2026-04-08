@@ -21,23 +21,23 @@
 /* ── Spiral binding ─────────────────────────────────────────────── */
 .spiralContainer {
   position: absolute;
-  top: -22px;
+  top: -12px;
   left: 0;
   right: 0;
   display: flex;
   justify-content: space-evenly;
-  padding: 0 40px;
+  padding: 0 60px;
   z-index: 20;
   pointer-events: none;
 }
 
 .spiralCoil {
-  width: 20px;
-  height: 22px;
-  border: 3px solid #b0b8c8;
+  width: 14px;
+  height: 24px;
+  border: 3px solid #6b7280;
   border-radius: 50% 50% 0 0 / 60% 60% 0 0;
-  background: linear-gradient(180deg, #d8dde8 0%, #9aa0b0 100%);
-  box-shadow: inset 0 2px 4px rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.2);
+  background: linear-gradient(180deg, #9ca3af 0%, #4b5563 100%);
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.4);
   position: relative;
 }
 
@@ -47,20 +47,21 @@
   bottom: -6px;
   left: 50%;
   transform: translateX(-50%);
-  width: 14px;
+  width: 10px;
   height: 10px;
-  border: 3px solid #b0b8c8;
+  border: 3px solid #6b7280;
   border-top: none;
   border-radius: 0 0 50% 50% / 0 0 60% 60%;
-  background: linear-gradient(180deg, #9aa0b0 0%, #d8dde8 100%);
+  background: linear-gradient(180deg, #4b5563 0%, #9ca3af 100%);
 }
 
 /* ── Hero image ─────────────────────────────────────────────────── */
 .imageWrapper {
   position: relative;
   width: 100%;
-  height: 260px;
+  height: 400px;
   overflow: hidden;
+  background-color: var(--gray-100);
 }
 
 .heroImage {
@@ -78,15 +79,14 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    transparent 40%,
-    rgba(0, 0, 0, 0.25) 80%,
-    rgba(0, 0, 0, 0.45) 100%
+    transparent 50%,
+    rgba(0, 0, 0, 0.4) 100%
   );
 }
 
 .photoCredit {
   position: absolute;
-  bottom: 10px;
+  top: 20px;
   right: 12px;
   display: flex;
   align-items: center;
@@ -96,79 +96,90 @@
   font-weight: 400;
   letter-spacing: 0.02em;
   text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  z-index: 10;
 }
 
-/* ── Wave section ────────────────────────────────────────────────── */
-.waveSection {
-  position: relative;
-  background: var(--wave-color, #1a6fc4);
-  padding: 8px 20px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
-  min-height: 64px;
-}
-
-.waveSvg {
+/* ── Angular overlay section ────────────────────────────────────────────── */
+.angularOverlay {
   position: absolute;
-  top: -48px;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 50px;
+  height: 150px;
   pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  z-index: 10;
+}
+
+.angularSvg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .monthYearBadge {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  margin-right: auto;
-  padding: 4px 0;
+  align-items: center;
+  z-index: 12;
+  margin-right: 15%;
+  margin-bottom: 30px;
+  pointer-events: auto;
 }
 
 .yearText {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: rgba(255,255,255,0.75);
-  letter-spacing: 0.12em;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.9);
   line-height: 1;
 }
 
 .monthText {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.7rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 2.5rem;
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   line-height: 1;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 /* ── Navigation ─────────────────────────────────────────────────── */
 .navButtons {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+  z-index: 15;
 }
 
 .navBtn {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.3);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s ease, transform 0.2s ease;
-  border: 1px solid rgba(255,255,255,0.25);
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  pointer-events: auto;
 }
 
 .navBtn:hover {
-  background: rgba(255,255,255,0.3);
-  transform: scale(1.08);
+  background: rgba(0,0,0,0.6);
+  transform: scale(1.1);
 }
 
 .navBtn:active {
@@ -176,26 +187,29 @@
 }
 
 .todayBtn {
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: 20px;
-  background: rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.3);
   color: #ffffff;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  border: 1px solid rgba(255,255,255,0.3);
-  transition: background 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(4px);
+  transition: all 0.2s ease;
+  pointer-events: auto;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }
 
 .todayBtn:hover {
-  background: rgba(255,255,255,0.3);
-  transform: scale(1.04);
+  background: rgba(0,0,0,0.6);
+  transform: scale(1.05);
 }
 
 /* ── Responsive ─────────────────────────────────────────────────── */
 @media (max-width: 640px) {
-  .imageWrapper { height: 200px; }
-  .monthText { font-size: 1.4rem; }
+  .imageWrapper { height: 300px; }
+  .monthText { font-size: 1.8rem; }
+  .yearText { font-size: 1.4rem; }
   .spiralContainer { padding: 0 20px; }
-  .spiralCoil { width: 16px; height: 18px; }
 }

@@ -1,0 +1,197 @@
+.gridWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 16px 16px;
+  min-width: 0;
+}
+
+/* ── Day headers ─────────────────────────────────────────────────── */
+.dayHeaders {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 4px;
+}
+
+.dayHeader {
+  text-align: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #7a8aaa;
+  padding: 6px 0 4px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.weekendHeader {
+  /* color set dynamically via inline style */
+  font-weight: 700;
+}
+
+/* ── Grid ────────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  flex: 1;
+}
+
+/* ── Day cells ───────────────────────────────────────────────────── */
+.dayCell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  min-height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    transform 0.15s ease,
+    box-shadow 0.18s ease;
+  padding: 0;
+  overflow: visible;
+}
+
+.dayCell:hover:not(.selected) {
+  background: rgba(26, 111, 196, 0.08) !important;
+  transform: scale(1.06);
+  z-index: 2;
+}
+
+.dayCell:active {
+  transform: scale(0.94);
+}
+
+.dayNum {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── States ──────────────────────────────────────────────────────── */
+.currentMonth .dayNum {
+  font-weight: 600;
+}
+
+.otherMonth {
+  opacity: 0.4;
+}
+
+.today {
+  border: 2px solid var(--day-color, #1a6fc4);
+}
+
+.today .dayNum {
+  font-weight: 700;
+}
+
+.todayDot {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.selected {
+  border-radius: 50%;
+  transform: scale(1.08);
+  z-index: 3;
+  box-shadow: 0 4px 14px rgba(26, 111, 196, 0.35);
+}
+
+.selected:hover {
+  transform: scale(1.12) !important;
+}
+
+.rangeStart {
+  border-radius: 50% 8px 8px 50%;
+}
+
+.rangeEnd {
+  border-radius: 8px 50% 50% 8px;
+}
+
+/* When start = end (single click), keep full circle */
+.rangeStart.rangeEnd,
+.selected:not(.rangeStart):not(.rangeEnd) {
+  border-radius: 50%;
+}
+
+.inRange {
+  border-radius: 0;
+}
+
+.inRange:first-child,
+.inRange:nth-child(7n + 1) {
+  border-radius: 8px 0 0 8px;
+}
+
+.inRange:nth-child(7n) {
+  border-radius: 0 8px 8px 0;
+}
+
+/* range cap helpers for connecting range start/end to inRange */
+.rangeCapLeft,
+.rangeCapRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 0;
+  border-radius: 0;
+}
+.rangeCapLeft { right: 0; }
+.rangeCapRight { left: 0; }
+
+/* ── Indicators ──────────────────────────────────────────────────── */
+.holidayIndicator {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
+
+.holidayDot {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.noteDot {
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #f39c12;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .dayCell {
+    min-height: 30px;
+    border-radius: 6px;
+  }
+  .dayNum {
+    font-size: 0.72rem;
+  }
+  .dayHeader {
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+  }
+  .gridWrapper {
+    padding: 8px 10px 12px;
+  }
+}

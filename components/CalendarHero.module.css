@@ -1,0 +1,201 @@
+.hero {
+  position: relative;
+  width: 100%;
+  border-radius: 0;
+  overflow: visible;
+  flex-shrink: 0;
+  transform-origin: top center;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.flipping {
+  animation: pageFlip 0.4s ease forwards;
+}
+
+@keyframes pageFlip {
+  0%   { transform: perspective(1200px) rotateX(0deg); }
+  40%  { transform: perspective(1200px) rotateX(-10deg) translateY(-5px); }
+  100% { transform: perspective(1200px) rotateX(0deg); }
+}
+
+/* ── Spiral binding ─────────────────────────────────────────────── */
+.spiralContainer {
+  position: absolute;
+  top: -22px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 40px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.spiralCoil {
+  width: 20px;
+  height: 22px;
+  border: 3px solid #b0b8c8;
+  border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+  background: linear-gradient(180deg, #d8dde8 0%, #9aa0b0 100%);
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.spiralCoil::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 10px;
+  border: 3px solid #b0b8c8;
+  border-top: none;
+  border-radius: 0 0 50% 50% / 0 0 60% 60%;
+  background: linear-gradient(180deg, #9aa0b0 0%, #d8dde8 100%);
+}
+
+/* ── Hero image ─────────────────────────────────────────────────── */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center 30%;
+  transition: transform 0.8s ease, filter 0.5s ease;
+}
+
+.hero:hover .heroImage {
+  transform: scale(1.04);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(0, 0, 0, 0.25) 80%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+}
+
+.photoCredit {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+/* ── Wave section ────────────────────────────────────────────────── */
+.waveSection {
+  position: relative;
+  background: var(--wave-color, #1a6fc4);
+  padding: 8px 20px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  min-height: 64px;
+}
+
+.waveSvg {
+  position: absolute;
+  top: -48px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  pointer-events: none;
+}
+
+.monthYearBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: auto;
+  padding: 4px 0;
+}
+
+.yearText {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.monthText {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* ── Navigation ─────────────────────────────────────────────────── */
+.navButtons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.navBtn:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.08);
+}
+
+.navBtn:active {
+  transform: scale(0.94);
+}
+
+.todayBtn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.18);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.todayBtn:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.04);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .imageWrapper { height: 200px; }
+  .monthText { font-size: 1.4rem; }
+  .spiralContainer { padding: 0 20px; }
+  .spiralCoil { width: 16px; height: 18px; }
+}

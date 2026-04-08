@@ -82,6 +82,7 @@
   line-height: 32px;
   color: var(--gray-800);
   outline: none;
+  position: relative;
   z-index: 2;
   padding: 0 4px;
   overflow: hidden;

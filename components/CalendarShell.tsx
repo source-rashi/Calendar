@@ -33,7 +33,7 @@ export default function CalendarShell() {
             currentMonth={calendar.currentMonth}
             dateRange={calendar.dateRange}
             dateNotes={calendar.dateNotes}
-            monthNotes={[]} // Not using monthNotes state here to avoid rerender issues since NotesPanel has local state
+            monthNotes={calendar.monthNotes}
             addDateNote={calendar.addDateNote}
             deleteDateNote={calendar.deleteDateNote}
             saveMonthNote={calendar.saveMonthNote}

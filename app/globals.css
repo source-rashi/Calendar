@@ -73,6 +73,7 @@ body {
   position: relative;
   display: flex;
   align-items: center; /* Center the calendar vertically */
+  justify-content: center; /* Center the calendar horizontally */
   padding: 40px 0; /* padding for scrolling if screen is small */
 }
 

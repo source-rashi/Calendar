@@ -1,14 +1,14 @@
 .calendarShell {
   width: 100%;
-  max-width: 700px;
+  max-width: 640px; /* Scaled down slightly to fit on smaller laptop screens better */
   background: var(--white);
   box-shadow: 0 40px 100px -10px rgba(0,0,0,0.2), 0 20px 40px -10px rgba(0,0,0,0.1), 0 -2px 10px rgba(0,0,0,0.02);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
-  margin: auto; /* Vertically centers inside the new flex body */
-  min-height: 900px; /* Enforce portrait feel */
+  margin: auto;
+  min-height: 840px; /* Scaled down proportionally */
   z-index: 10;
   transform-origin: top center;
   transform-style: preserve-3d;
@@ -32,23 +32,23 @@
   flex-direction: row;
   flex: 1;
   background: var(--white);
-  padding: 10px 20px 40px 10px;
+  padding: 10px 24px 40px 12px;
   gap: 16px;
 }
 
 .sidebar {
-  width: 35%;
+  flex: 0 0 35%; /* Fixed percentage */
   padding: 0;
   display: flex;
   flex-direction: column;
 }
 
 .mainContent {
-  width: 65%;
+  flex: 1; /* Takes exact remaining space, preventing right side overflow */
   display: flex;
   flex-direction: column;
   min-width: 0;
-  padding: 0 10px;
+  padding: 0;
 }
 
 /* ── Responsive ─────────────────────────────────────────────────── */

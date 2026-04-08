@@ -1,0 +1,75 @@
+.rangeInfoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--off-white);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  margin: 0 16px 12px;
+  border-left: 4px solid var(--primary);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  animation: slideInRight 0.3s ease;
+}
+
+.rangeDetails {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dateLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  display: flex;
+}
+
+.dateText {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.arrow {
+  color: var(--gray-400);
+  margin: 0 4px;
+}
+
+.daysCount {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  background: var(--gray-100);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.clearBtn {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.clearBtn:hover {
+  background: rgba(0,0,0,0.05);
+  color: var(--gray-800);
+}
+
+@media (max-width: 480px) {
+  .rangeInfoContainer {
+    padding: 8px 12px;
+    margin: 0 10px 10px;
+  }
+  .dateText {
+    font-size: 0.8rem;
+  }
+  .daysCount {
+    display: none;
+  }
+}

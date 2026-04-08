@@ -1,0 +1,59 @@
+.calendarShell {
+  width: 100%;
+  max-width: 900px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-calendar);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 auto;
+}
+
+.calendarBody {
+  display: flex;
+  flex-direction: row;
+  min-height: 400px;
+  background: var(--white);
+  padding: 20px 0;
+  gap: 16px;
+}
+
+.sidebar {
+  width: 280px;
+  padding: 0 0 0 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0 24px 0 0;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .calendarShell {
+    border-radius: var(--radius-md);
+  }
+  
+  .calendarBody {
+    flex-direction: column;
+    padding: 16px 0;
+  }
+  
+  .mainContent {
+    padding: 0;
+  }
+  
+  .sidebar {
+    width: 100%;
+    padding: 0 16px;
+    height: 300px;
+    order: 2; /* Move notes below calendar on mobile */
+  }
+}

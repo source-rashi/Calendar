@@ -157,7 +157,7 @@ function DayCell({ cell, monthPrimary, onDateClick, onDateHover }: {
       style={{
         ...getBgStyle(),
         '--day-color': monthPrimary,
-      } as React.CSSProperties}
+      } as any}
       onClick={() => onDateClick(date)}
       onMouseEnter={() => onDateHover(date)}
       onMouseLeave={() => onDateHover(null)}
